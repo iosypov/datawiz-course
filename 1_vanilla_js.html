@@ -1,0 +1,61 @@
+<html>
+  <head>
+    
+  </head>
+  <body>
+    Another List
+    <ul class="not-use">
+      <li>2</li>
+    </ul>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <ul>
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+      <li>4</li>
+      <li>5</li>
+      <li>6</li>
+      <li>7</li>
+      <li>8</li>
+      <li>9</li>
+      <li>10</li>
+      <li>11</li>
+    </ul>
+
+    <button id="calculate">Twice odd elemets</button>
+
+    <script>
+
+      document.getElementById("calculate").addEventListener("click", function() {
+
+        const ul = document.getElementsByTagName("ul");
+        for (let i = 0; i < ul.length; i++) {
+          if (ul[i].classList.contains("not-use")) continue;
+
+          const elements = ul[i].getElementsByTagName("li");
+          for (let i = 0; i < elements.length; i++) {
+            if (i % 2  === 1) {
+              let value = elements[i].innerHTML;
+              value = parseInt(value) * 2;
+              elements[i].innerHTML = value
+            }
+          }
+        }
+
+
+        /*const elements = document.getElementsByTagName("li");
+        console.log(elements)
+        for (let i = 0; i < elements.length; i++) {
+          if (i % 2  === 1) {
+            let value = elements[i].innerHTML;
+            value = parseInt(value) * 2;
+            elements[i].innerHTML = value
+          }
+        }*/
+      })
+    </script>
+  </body>
+</html>
