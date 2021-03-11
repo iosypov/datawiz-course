@@ -9,24 +9,32 @@
 
     <ul id="posts">
     </ul>
+    <div class="d-none" id="loading">Loading</div>
     <form id="form">
       <input name="title" /><br /><br />
       <textarea name="body"></textarea><br /><br />
+      <input name="vvv" />><br /><br />
       <button type="submit">Submit</button>
     </form>
     <script>
-      $.ajax({
-        url: "https://jsonplaceholder.typicode.com/posts", 
-        success: function (posts) {
-          posts.forEach(post => {
-            const li = $("<li></li>").html(post.title);
-            $("#posts").append(li)
-          })
-        }
-      })
+      function loadComments() {
+        $("#posts").html("");
+        $("#loading").removeClass("d-none")
+        $.ajax({
+          url: "https://jsonplaceholder.typicode.com/posts", 
+          success: function (posts) {
+            posts.forEach(post => {
+              const li = $("<li></li>").html(post.title);
+              $("#loading").addClass("d-none")
+              $("#posts").append(li);
+            })
+          }
+        })
+      }
 
       $("#form").on("submit", function() {
         const array = $('#form').serializeArray();
+        console.log(array);
         const data = {};
         array.forEach(function(item) {
           data[item["name"]] = item["value"];

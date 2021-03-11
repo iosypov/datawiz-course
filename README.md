@@ -2,4 +2,4 @@
 
 Files for Datawiz Python Course
 
-Presentation wil be soon
+Presentation is located on filte FrontEndBootstrap.pdf
