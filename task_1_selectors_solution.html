@@ -6,6 +6,15 @@
       src="https://code.jquery.com/jquery-3.5.1.min.js"
       integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
       crossorigin="anonymous"></script>
+
+      <style>
+        table#age-table tr:even {
+          background: red;
+        }
+        table#age-table tr:odd {
+          background: blue;
+        }
+      </style>
 </head>
 <body>
   <form name="search">
@@ -45,20 +54,26 @@
 
     <input type="submit" value="Search!">
   </form>
+  
   <script type="text/javascript">
     $(document).ready(function() {
       // 1. Table with  id="age-table"
       console.log($("table#age-table"));
       // 2. All label elements inside this table (three items).
-      console.log($("table label"));
+      console.log($("table#age-table label"));
       // 3. First td in this table (item with word «Age»).
-      console.log($("table td:first"));
+      console.log($("table#age-table td:first"));
       // 4. Form form with name name="search".
       console.log($("form[name='search']"));
       // 5. First input in this form.
       console.log($("form[name='search'] input:first"));
       // 6. Last input in this form.
       console.log($("form[name='search'] input:last"));
+
+      $("table#age-table tr:last").append("<tr><td>123</td><td></td></tr>")
+
+      // $("table#age-table tr:even").css("background", "red")
+      // $("table#age-table tr:odd").css("background", "blue")
     })
   </script>
 </body>

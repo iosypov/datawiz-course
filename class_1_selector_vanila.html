@@ -1,0 +1,77 @@
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <ul class="not-calculate">
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+    </ul>
+    <ul>
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+      <li>4</li>
+      <li>5</li>
+      <li>6</li>
+      <li>7</li>
+      <li>8</li>
+      <li>9</li>
+      <li>10</li>
+    </ul>
+
+    <ul class="not-calculate">
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+    </ul>
+
+    <ul>
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+      <li>4</li>
+      <li>5</li>
+      <li>6</li>
+      <li>7</li>
+      <li>8</li>
+      <li>9</li>
+      <li>10</li>
+    </ul>
+
+    <button id="my-button">Twice odd elements</button>
+
+
+    <script>
+      const button = document.getElementById("my-button");
+
+      button.addEventListener("click", () => {
+
+        const ulList = document.getElementsByTagName("ul");
+
+        for (let index = 0; index < ulList.length; index++) {
+          const ul = ulList[index];
+          if (ul.classList.contains("not-calculate")) {
+            continue ;
+          }
+
+          const list = ul.getElementsByTagName("li");
+
+          for (let i = 0; i < list.length; i++) {
+            const li = list[i];
+            if (i % 2 !== 0) {
+              let value = +li.innerHTML * 2;
+              li.innerHTML = value;
+            }
+          }
+        }
+
+      })
+
+    </script>
+  </body>
+
+
+
+</html>

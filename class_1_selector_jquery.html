@@ -1,0 +1,66 @@
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <ul class="not-calculate">
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+    </ul>
+    <ul>
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+      <li>4</li>
+      <li>5</li>
+      <li>6</li>
+      <li>7</li>
+      <li>8</li>
+      <li>9</li>
+      <li>10</li>
+    </ul>
+
+    <ul class="not-calculate">
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+    </ul>
+
+    <ul>
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+      <li>4</li>
+      <li>5</li>
+      <li>6</li>
+      <li>7</li>
+      <li>8</li>
+      <li>9</li>
+      <li>10</li>
+    </ul>
+
+    <button id="my-button">Twice odd elements</button>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      function calculation() {
+        const list = $("ul[class!=not-calculate] > li:odd");
+        list.each(function () {
+          const value = +$(this).html() * 2;
+          $(this).html(value)
+        })
+      }
+
+      jQuery(document).ready(() => {
+        $("#my-button").on("click", () => {
+          calculation()
+        })
+      });
+
+    </script>
+  </body>
+
+
+
+</html>

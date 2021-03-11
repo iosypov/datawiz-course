@@ -1,0 +1,67 @@
+<html>
+  <head>
+    <style>
+      .alert.alert-danger {
+        color: red;
+        background: lightcoral;
+      }
+      .alert {
+        background: lightblue;
+        color: blue;
+        padding: 10px;
+        margin-bottom: 5px;
+        font-size: 12px;
+      }
+
+      #id {
+        color: yellow;
+        background: lightcoral;
+      }
+
+      #id.alert {
+        color: black;
+        background: lightcoral;
+      }
+
+      #id.alert.alert.alert-danger {
+        color: white !important;
+        background: lightcoral;
+      }
+
+      .hidden {
+        display: none;
+      }
+      
+    </style>
+
+  </head>
+  <body>
+    <div class="alert hidden" id="first-alert">
+      My Alert First
+    </div>
+
+    <div class="alert hidden" id="second-alert">
+      My Alert Second
+    </div>
+    <button class="btn-alert" data-alert="second-alert">Show alert 2</button>
+    <button class="btn-alert" data-alert="first-alert">Show alert 1</button>
+    
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      function showAlert(id) {
+        $(`#${id}`).show();
+          setTimeout(() => {
+            $(`#${id}`).hide();
+          }, 3000);
+      }
+      $(document).ready(() => {
+        $(".btn-alert").on("click", function() {
+          const alertId = $(this).attr("data-alert");
+          showAlert(alertId);
+        })
+      })
+    </script>
+  </body>
+
+</html>
